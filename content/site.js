@@ -81,7 +81,7 @@ const SITE = {
       badgeColor: "amber",
       type: "standard",
       description: "Bold ripe mango with a slow jalapeño kick — a sweet-heat combination that surprises and delights. A standout on any menu.",
-      tags: ["Sweet Heat", "Zero Sugar", "Zero Alcohol"],
+      tags: ["Sweet Heat", "Zero Sugar", "Spicy"],
       drinkImage: "assets/images/drinks/mango-jalapeno.jpg",
       sachetImage: "assets/images/sachets/mango-jalapeno.jpg"
     },
@@ -163,8 +163,8 @@ const SITE = {
       },
       {
         num: "02",
-        title: "Add Water or Soda",
-        body: "Pour 200–250ml of chilled still water or carbonated soda. The effervescent system activates instantly."
+        title: "Add Carbonated Mixer",
+        body: "Pour 200–250ml of chilled carbonated mixer of choice. The effervescent system activates instantly."
       },
       {
         num: "03",
@@ -183,11 +183,11 @@ const SITE = {
   sample: {
     label: "Partner With Us",
     headline: "Let's Bring Swananda<br>to Your Venue",
-    body: "Whether you're a hotel F&B director, restaurant owner, or café manager — fill in the form and we'll put a sample kit in your hands within 48 hours.",
+    body: "Whether you're a hotel F&B director, restaurant owner, or café manager — fill in the form and we'll put a sample kit in your hands.",
     contact: {
       email: "swanandafoodsandbeverages@gmail.com",
       location: "Bengaluru, Karnataka · Shipping Pan-India",
-      incubator: "CFTRI, Mysuru · Supported by NSRCEL, IIM Bangalore"
+      incubator: "BioNest Incubator - CFTRI, Mysuru"
     },
     establishmentTypes: [
       "Standalone Restaurant",
@@ -219,14 +219,8 @@ const SITE = {
       {
         color: "amber",
         label: "Our Incubator",
-        title: "CFTRI, Mysuru",
+        title: "BioNest Incubator - CFTRI, Mysuru",
         body: "Formulated under the rigour of the Central Food Technological Research Institute — India's foremost food science institution. Full HACCP compliance and validated SOPs."
-      },
-      {
-        color: "green",
-        label: "Startup Support",
-        title: "NSRCEL, IIM Bangalore",
-        body: "Supported by NSRCEL — the startup incubator at IIM Bangalore — for business model refinement, market access, and go-to-market strategy."
       }
     ],
     milestones: [
@@ -257,7 +251,7 @@ const SITE = {
   // ── FOOTER ─────────────────────────────────
   footer: {
     tagline: "© 2025 Swananda Food & Beverages, Bengaluru",
-    sub: "CFTRI Incubated · NSRCEL Supported"
+    sub: "CFTRI Incubated "
   }
 
 };
