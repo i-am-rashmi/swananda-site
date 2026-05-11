@@ -57,7 +57,7 @@ const SITE = {
       { value: "60s", label: "Prep Time" },
       { value: "12mo", label: "Shelf Life" }
     ],
-    drinkImage: "assets/images/drinks/tamarind-spice-2.jpg",
+    drinkImage: "assets/images/drinks/tamarind-spice.jpg",
     sachetImage: "assets/images/sachets/tamarind-spice.jpg"
   },
 
