@@ -338,8 +338,6 @@ function renderSample() {
             &#127807; Thank you! We've received your inquiry and will reach out within 48 hours.
           </div>
         </form>
-
-
       </div>
     </section>`;
 }
