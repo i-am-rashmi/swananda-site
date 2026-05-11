@@ -192,7 +192,7 @@ const SITE = {
     headline: "Let's Bring Swananda<br>to Your Venue",
     body: "Whether you're a hotel F&B director, restaurant owner, or café manager — fill in the form and we'll put a sample kit in your hands.",
     contact: {
-      email: "swanandafoodsandbeverages@gmail.com",
+      email: "swanandafoodandbev@gmail.com",
       location: "Bengaluru, Karnataka · Shipping Pan-India",
       incubator: "BioNest Incubator - CFTRI, Mysuru"
     },

@@ -282,7 +282,8 @@ function renderSample() {
           </div>
         </div>
 
-        <div class="form" id="inquiryForm">
+        <form class="form" id="inquiryForm" name="inquiry" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="inquiry">
           <div class="form__row">
             <div class="form__group">
               <label class="form__label">Your Name *</label>
@@ -336,7 +337,8 @@ function renderSample() {
           <div class="form__success" id="formSuccess">
             &#127807; Thank you! We've received your inquiry and will reach out within 48 hours.
           </div>
-        </div>
+        </form>
+
 
       </div>
     </section>`;
