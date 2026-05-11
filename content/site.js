@@ -75,6 +75,17 @@ const SITE = {
       sachetImage: "assets/images/sachets/tamarind-spice.jpg"
     },
     {
+      id: "mango-jalapeno",
+      name: "Mango Jalapeño",
+      badge: "Bestseller",
+      badgeColor: "amber",
+      type: "standard",
+      description: "Bold ripe mango with a slow jalapeño kick — a sweet-heat combination that surprises and delights. A standout on any menu.",
+      tags: ["Sweet Heat", "Zero Sugar", "Zero Alcohol"],
+      drinkImage: "assets/images/drinks/mango-jalapeno.jpg",
+      sachetImage: "assets/images/sachets/mango-jalapeno.jpg"
+    },
+    {
       id: "strawberry-mint",
       name: "Strawberry Mint",
       badge: null,
@@ -125,6 +136,17 @@ const SITE = {
       tags: ["Sunfiber® AG", "Prebiotic", "Antioxidant", "Zero Sugar"],
       drinkImage: "assets/images/drinks/blueberry-lychee.jpg",
       sachetImage: "assets/images/sachets/blueberry-fibre-plus.jpg"
+    },
+    {
+      id: "pineapple-mango-fibre-plus",
+      name: "Pineapple Mango Fibre+",
+      badge: "Functional",
+      badgeColor: "green",
+      type: "prebiotic",
+      description: "The tropical brightness of pineapple and mango, enhanced with Sunfiber® AG prebiotic fibre. Gut-supportive, FODMAP-friendly, and vibrant.",
+      tags: ["Sunfiber® AG", "Prebiotic", "Tropical", "Zero Sugar"],
+      drinkImage: "assets/images/drinks/pineapple-mango.jpg",
+      sachetImage: "assets/images/sachets/pineapple-mango-fibre-plus.jpg"
     }
   ],
 
