@@ -168,9 +168,10 @@ function renderOfferings() {
         Two distinct product lines. Signature flavours for every menu — and a prebiotic range no one else in Indian food service is offering yet.
       </p>
 
-      <div class="tabs fade-up delay-2">
+<div class="tabs fade-up delay-2">
         <button class="tab active" onclick="showTab('standard', this)">Standard Flavours</button>
         <button class="tab"        onclick="showTab('prebiotic', this)">Prebiotic Flavours</button>
+        <button class="tab"        onclick="showTab('custom', this)">Custom Formulations</button>
       </div>
 
       <div class="tab-panel active" id="tab-standard">
@@ -184,6 +185,16 @@ function renderOfferings() {
           Our prebiotic range incorporates <strong>Sunfiber® AG</strong> — a clinically-studied soluble dietary fibre — delivering genuine functional benefit with every serving.
         </div>
         <div class="grid-2c">${prebioticCards}</div>
+      </div>
+
+      <div class="tab-panel" id="tab-custom">
+        <div style="max-width:640px">
+          <h3 class="heading" style="font-size:1.8rem;margin-bottom:1rem">${SITE.custom.headline}</h3>
+          <p class="body-text">${SITE.custom.body}</p>
+          <div style="margin-top:2rem">
+            <a href="${SITE.custom.cta.href}" class="btn btn--dark">${SITE.custom.cta.label} &rarr;</a>
+          </div>
+        </div>
       </div>
     </section>`;
 }

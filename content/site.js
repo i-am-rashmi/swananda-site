@@ -150,6 +150,13 @@ const SITE = {
     }
   ],
 
+  // ── CUSTOM FORMULATIONS ────────────────────
+  custom: {
+    headline: "Your Flavour. Your Brand. Exclusively Yours.",
+    body: "Have a signature drink your guests already love? We can convert any flavour into a fast-dispersing premix powder — built to your spec, tested in our lab, and produced at scale. No one else on your menu will serve it.",
+    cta: { label: "Get in Touch to Discuss", href: "#sample" }
+  },
+
   // ── HOW IT WORKS ───────────────────────────
   howItWorks: {
     label: "How to Make",
@@ -225,7 +232,7 @@ const SITE = {
     ],
     milestones: [
       {
-        year: "2025",
+        year: "2026",
         tag: "Competition · Recognition",
         title: "TiECon Mysuru — 2nd Runner Up",
         body: "Placed 2nd runner up at TiECon Mysuru's Ideathon — pitching the gap in functional beverage access across India's 7.5M+ food service establishments.",
