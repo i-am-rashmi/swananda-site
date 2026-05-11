@@ -239,6 +239,12 @@
   z-index: 2;
   max-width: 520px;
   color: #fff;
+  text-shadow: 0 2px 12px rgba(28, 15, 9, 0.6);
+  background: linear-gradient(to right,
+      rgba(28, 15, 9, 0.45) 0%,
+      transparent 100%);
+  padding: 2.5rem 3rem 2.5rem 2rem;
+  backdrop-filter: blur(2px);
 }
 
 .carousel__badge {

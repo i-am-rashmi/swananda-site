@@ -165,7 +165,7 @@ function renderOfferings() {
       <span class="label fade-up" contenteditable="false">Our Catalogue</span>
       <h2 class="heading fade-up delay-1" contenteditable="false">Choose Your Range</h2>
       <p class="body-text fade-up delay-2" style="max-width:55ch" contenteditable="false">
-        Two distinct product lines — our classic signature range and our functional prebiotic range for wellness-forward menus.
+        Two distinct product lines. Signature flavours for every menu — and a prebiotic range no one else in Indian food service is offering yet.
       </p>
 
       <div class="tabs fade-up delay-2">
