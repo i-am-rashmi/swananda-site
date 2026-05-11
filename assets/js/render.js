@@ -134,7 +134,7 @@ function renderAbout() {
 // ── OFFERINGS ────────────────────────────────
 
 function renderOfferings() {
-  const standard  = SITE.flavours.filter(f => f.type === 'standard');
+  const standard = SITE.flavours.filter(f => f.type === 'standard');
   const prebiotic = SITE.flavours.filter(f => f.type === 'prebiotic');
 
   function card(f) {
@@ -145,7 +145,7 @@ function renderOfferings() {
     return `
       <div class="catalog-card">
         <div class="catalog-card__images">
-          <img src="${f.drinkImage}"  alt="${f.name} Drink" style="object-position:center top">
+          <img src="${f.drinkImage}"  alt="${f.name} Drink" style="object-position:center 50%">
           <img src="${f.sachetImage}" alt="${f.name} Sachet" class="sachet">
         </div>
         <div class="catalog-card__body">
@@ -157,7 +157,7 @@ function renderOfferings() {
       </div>`;
   }
 
-  const standardCards  = standard.map(card).join('');
+  const standardCards = standard.map(card).join('');
   const prebioticCards = prebiotic.map(card).join('');
 
   return `
