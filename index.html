@@ -14,7 +14,7 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
     rel="stylesheet">
 
-  <!-- Styles (order matters) -->
+  <!-- Styles -->
   <link rel="stylesheet" href="assets/css/theme.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components.css">
@@ -23,7 +23,6 @@
 
 <body>
 
-  <!-- All sections are injected here by render.js -->
   <div id="app"></div>
 
   <!-- Netlify form detection — do not remove -->
@@ -34,12 +33,19 @@
     <input type="email" name="f-email">
     <select name="f-estab"></select>
     <input type="text" name="f-city">
-    <input type="text" name="flavours">
+    <input type="checkbox" name="flavours" value="Tamarind Spice">
+    <input type="checkbox" name="flavours" value="Strawberry Mint">
+    <input type="checkbox" name="flavours" value="Pineapple Mango">
+    <input type="checkbox" name="flavours" value="Blueberry Lychee">
+    <input type="checkbox" name="flavours" value="Mango Jalapeño">
+    <input type="checkbox" name="flavours" value="Tamarind Fibre+">
+    <input type="checkbox" name="flavours" value="Blueberry Fibre+">
+    <input type="checkbox" name="flavours" value="Pineapple Mango Fibre+">
     <select name="f-volume"></select>
     <textarea name="f-message"></textarea>
   </form>
 
-  <!-- Content (must load before render.js) -->
+  <!-- Content -->
   <script src="content/site.js"></script>
 
   <!-- Logic -->

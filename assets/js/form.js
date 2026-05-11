@@ -1,11 +1,25 @@
 /* ─────────────────────────────────────────────
    SWANANDA — Form
-   Inquiry form validation and submission.
-
-   TO CONNECT A REAL BACKEND:
-   Replace the "TODO" section below with a fetch()
-   call to Netlify Forms, Formspree, or your API.
    ───────────────────────────────────────────── */
+
+function toggleGroup(type, master) {
+  document.querySelectorAll(`.flavour-${type}`).forEach(cb => cb.checked = master.checked);
+  syncMasters();
+}
+
+function toggleAllFlavours(master) {
+  document.querySelectorAll('.flavour-check').forEach(cb => cb.checked = master.checked);
+  document.getElementById('check-all-standard').checked = master.checked;
+  document.getElementById('check-all-prebiotic').checked = master.checked;
+}
+
+function syncMasters() {
+  const allStandard = [...document.querySelectorAll('.flavour-standard')].every(cb => cb.checked);
+  const allPrebiotic = [...document.querySelectorAll('.flavour-prebiotic')].every(cb => cb.checked);
+  document.getElementById('check-all-standard').checked = allStandard;
+  document.getElementById('check-all-prebiotic').checked = allPrebiotic;
+  document.getElementById('check-all').checked = allStandard && allPrebiotic;
+}
 
 function submitForm(e) {
   if (e) e.preventDefault();

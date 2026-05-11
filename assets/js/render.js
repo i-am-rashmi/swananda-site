@@ -15,7 +15,6 @@ function el(tag, cls, html) {
 }
 
 function ce(html) {
-  // Wrap a string with contenteditable off by default
   return `<span contenteditable="false">${html}</span>`;
 }
 
@@ -24,7 +23,7 @@ function ce(html) {
 function renderNav() {
   const s = SITE.nav;
   const links = s.links.map(l =>
-    `<li><a href="${l.href}"${l.href === SITE.nav.cta.href ? ' class="nav__cta"' : ''}>${l.label}</a></li>`
+    `<li><a href="${l.href}">${l.label}</a></li>`
   ).join('');
 
   return `
@@ -85,7 +84,7 @@ function renderCarousel() {
 // ── MARQUEE ──────────────────────────────────
 
 function renderMarquee() {
-  const items = [...SITE.marquee, ...SITE.marquee]; // doubled for seamless loop
+  const items = [...SITE.marquee, ...SITE.marquee];
   const html = items.map((item, i) =>
     `<span class="marquee__item">${item}</span>${i % SITE.marquee.length === SITE.marquee.length - 1 ? '' : '<span class="marquee__item marquee__dot">&#10022;</span>'}`
   ).join('');
@@ -96,7 +95,7 @@ function renderMarquee() {
     </div>`;
 }
 
-// ── ABOUT ─────────────────────────────────────
+// ── ABOUT ────────────────────────────────────
 
 function renderAbout() {
   const a = SITE.about;
@@ -168,7 +167,7 @@ function renderOfferings() {
         Two distinct product lines. Signature flavours for every menu — and a prebiotic range no one else in Indian food service is offering yet.
       </p>
 
-<div class="tabs fade-up delay-2">
+      <div class="tabs fade-up delay-2">
         <button class="tab active" onclick="showTab('standard', this)">Standard Flavours</button>
         <button class="tab"        onclick="showTab('prebiotic', this)">Prebiotic Flavours</button>
         <button class="tab"        onclick="showTab('custom', this)">Custom Formulations</button>
@@ -199,7 +198,7 @@ function renderOfferings() {
     </section>`;
 }
 
-// ── HOW IT WORKS ──────────────────────────────
+// ── HOW IT WORKS ─────────────────────────────
 
 function renderHowItWorks() {
   const h = SITE.howItWorks;
@@ -220,8 +219,8 @@ function renderHowItWorks() {
         <img src="${h.image}" alt="How to make Swananda mocktail">
       </div>
       <div class="split-section__content">
-        <span class="label fade-up"         contenteditable="false">${h.label}</span>
-        <h2  class="heading fade-up delay-1" contenteditable="false">${h.headline}</h2>
+        <span class="label fade-up"          contenteditable="false">${h.label}</span>
+        <h2   class="heading fade-up delay-1" contenteditable="false">${h.headline}</h2>
         <div class="steps">${steps}</div>
         <div style="margin-top:2.5rem">
           <a href="#sample" class="btn btn--dark fade-up delay-4">Request a Sample Kit &rarr;</a>
@@ -230,7 +229,7 @@ function renderHowItWorks() {
     </div>`;
 }
 
-// ── REQUEST SAMPLE ────────────────────────────
+// ── REQUEST SAMPLE ───────────────────────────
 
 function renderSample() {
   const s = SITE.sample;
@@ -243,11 +242,43 @@ function renderSample() {
     `<option>${v}</option>`
   ).join('');
 
-  const flavourCheckboxes = SITE.flavours.map(f => `
+  const standardFlavours = SITE.flavours.filter(f => f.type === 'standard');
+  const prebioticFlavours = SITE.flavours.filter(f => f.type === 'prebiotic');
+
+  const standardCheckboxes = standardFlavours.map(f => `
     <label class="form__checkbox">
-      <input type="checkbox" value="${f.name}"> ${f.name}
-    </label>`
-  ).join('');
+      <input type="checkbox" class="flavour-check flavour-standard" name="flavours" value="${f.name}" onchange="syncMasters()"> ${f.name}
+    </label>`).join('');
+
+  const prebioticCheckboxes = prebioticFlavours.map(f => `
+    <label class="form__checkbox">
+      <input type="checkbox" class="flavour-check flavour-prebiotic" name="flavours" value="${f.name}" onchange="syncMasters()"> ${f.name}
+    </label>`).join('');
+
+  const flavourSelector = `
+    <div class="flavour-selector">
+      <div class="flavour-selector__master">
+        <label class="form__checkbox">
+          <input type="checkbox" id="check-all-standard" onchange="toggleGroup('standard', this)"> All Standard Flavours
+        </label>
+        <label class="form__checkbox">
+          <input type="checkbox" id="check-all-prebiotic" onchange="toggleGroup('prebiotic', this)"> All Prebiotic Flavours
+        </label>
+        <label class="form__checkbox">
+          <input type="checkbox" id="check-all" onchange="toggleAllFlavours(this)"> All Flavours
+        </label>
+      </div>
+      <div class="flavour-selector__cols">
+        <div class="flavour-selector__col">
+          <div class="flavour-selector__col-heading">Standard</div>
+          ${standardCheckboxes}
+        </div>
+        <div class="flavour-selector__col">
+          <div class="flavour-selector__col-heading">Prebiotic</div>
+          ${prebioticCheckboxes}
+        </div>
+      </div>
+    </div>`;
 
   return `
     <section class="section section--dark" id="sample">
@@ -283,25 +314,25 @@ function renderSample() {
         </div>
 
         <form class="form" id="inquiryForm" name="inquiry" method="POST" data-netlify="true">
-  <input type="hidden" name="form-name" value="inquiry">
+          <input type="hidden" name="form-name" value="inquiry">
           <div class="form__row">
             <div class="form__group">
               <label class="form__label">Your Name *</label>
-              <input id="f-name"  name="f-name"  class="form__input"  type="text"  placeholder="Full name"        required>
+              <input id="f-name" name="f-name" class="form__input" type="text" placeholder="Full name" required>
             </div>
             <div class="form__group">
               <label class="form__label">Business Name *</label>
-              <input id="f-business" name="f-business"  class="form__input"  type="text"  placeholder="Restaurant / Hotel / Café" required>
+              <input id="f-business" name="f-business" class="form__input" type="text" placeholder="Restaurant / Hotel / Café" required>
             </div>
           </div>
           <div class="form__row">
             <div class="form__group">
               <label class="form__label">Phone Number *</label>
-              <input id="f-phone"  name="f-phone"  class="form__input"  type="tel"   placeholder="+91 98765 43210"  required>
+              <input id="f-phone" name="f-phone" class="form__input" type="tel" placeholder="+91 98765 43210" required>
             </div>
             <div class="form__group">
               <label class="form__label">Email Address</label>
-              <input id="f-email"  name="f-email" class="form__input"  type="email" placeholder="you@business.com">
+              <input id="f-email" name="f-email" class="form__input" type="email" placeholder="you@business.com">
             </div>
           </div>
           <div class="form__group">
@@ -317,7 +348,7 @@ function renderSample() {
           </div>
           <div class="form__group">
             <label class="form__label">Flavours of Interest</label>
-            <div class="form__checkboxes">${flavourCheckboxes}</div>
+            ${flavourSelector}
           </div>
           <div class="form__group">
             <label class="form__label">Approximate Monthly Volume</label>
@@ -338,11 +369,12 @@ function renderSample() {
             &#127807; Thank you! We've received your inquiry and will reach out within 48 hours.
           </div>
         </form>
+
       </div>
     </section>`;
 }
 
-// ── JOURNEY ───────────────────────────────────
+// ── JOURNEY ──────────────────────────────────
 
 function renderJourney() {
   const j = SITE.journey;
@@ -373,9 +405,9 @@ function renderJourney() {
     <section class="section" id="journey">
       <div class="grid-2 grid-2--end" style="margin-bottom:4rem">
         <div>
-          <span class="label fade-up"         contenteditable="false">${j.label}</span>
-          <h2  class="heading fade-up delay-1" contenteditable="false">${j.headline}</h2>
-          <p   class="body-text fade-up delay-2" contenteditable="false">${j.body}</p>
+          <span class="label fade-up"           contenteditable="false">${j.label}</span>
+          <h2   class="heading fade-up delay-1"  contenteditable="false">${j.headline}</h2>
+          <p    class="body-text fade-up delay-2" contenteditable="false">${j.body}</p>
         </div>
         <div class="credentials fade-up delay-3">${credentials}</div>
       </div>
@@ -383,7 +415,7 @@ function renderJourney() {
     </section>`;
 }
 
-// ── FOOTER ────────────────────────────────────
+// ── FOOTER ───────────────────────────────────
 
 function renderFooter() {
   const f = SITE.footer;
@@ -404,7 +436,7 @@ function renderFooter() {
     </footer>`;
 }
 
-// ── EDIT TOGGLE ───────────────────────────────
+// ── EDIT TOGGLE ──────────────────────────────
 
 function renderEditToggle() {
   return `
@@ -414,7 +446,7 @@ function renderEditToggle() {
     </button>`;
 }
 
-// ── INIT ──────────────────────────────────────
+// ── INIT ─────────────────────────────────────
 
 function init() {
   const app = document.getElementById('app');
@@ -432,7 +464,6 @@ function init() {
     renderFooter()
   ].join('\n');
 
-  // Scroll-reveal observer
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) e.target.classList.add('visible');
@@ -442,7 +473,7 @@ function init() {
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 }
 
-// ── EDIT MODE ─────────────────────────────────
+// ── EDIT MODE ────────────────────────────────
 
 let editMode = false;
 

@@ -1038,3 +1038,32 @@
   padding: 2px 4px;
   cursor: text;
 }
+
+/* ── Flavour Selector ── */
+.flavour-selector__master {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-bottom: 0.8rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(246, 239, 227, 0.15);
+}
+
+.flavour-selector__master .form__checkbox:last-child {
+  color: var(--color-gold);
+}
+
+.flavour-selector__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.flavour-selector__col-heading {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
