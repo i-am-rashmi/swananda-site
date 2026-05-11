@@ -7,55 +7,35 @@
    call to Netlify Forms, Formspree, or your API.
    ───────────────────────────────────────────── */
 
-function submitForm() {
-  // Collect values
-  const name     = document.getElementById('f-name')?.value.trim();
+function submitForm(e) {
+  if (e) e.preventDefault();
+
+  const name = document.getElementById('f-name')?.value.trim();
   const business = document.getElementById('f-business')?.value.trim();
-  const phone    = document.getElementById('f-phone')?.value.trim();
-  const estab    = document.getElementById('f-estab')?.value;
-  const email    = document.getElementById('f-email')?.value.trim();
-  const city     = document.getElementById('f-city')?.value.trim();
-  const volume   = document.getElementById('f-volume')?.value;
-  const message  = document.getElementById('f-message')?.value.trim();
+  const phone = document.getElementById('f-phone')?.value.trim();
+  const estab = document.getElementById('f-estab')?.value;
 
-  const flavours = [...document.querySelectorAll('.form__checkboxes input:checked')]
-    .map(cb => cb.value)
-    .join(', ') || 'Not specified';
-
-  // Validate required fields
   if (!name || !business || !phone || !estab) {
     alert('Please fill in all required fields: Name, Business, Phone, and Establishment Type.');
     return;
   }
 
-  const payload = { name, business, phone, email, estab, city, flavours, volume, message };
-  console.log('Form submitted:', payload);
+  const form = document.getElementById('inquiryForm');
+  const formData = new FormData(form);
 
-  // ── TODO: send to Netlify / Formspree ────────
-  // Example for Netlify Forms — add name="inquiry"
-  // and data-netlify="true" to the form element,
-  // then use fetch('/') with FormData.
-  //
-  // Example for Formspree:
-  // fetch('https://formspree.io/f/YOUR_ID', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify(payload)
-  // });
-  // ─────────────────────────────────────────────
-
-  // Show success state
-  const successEl = document.getElementById('formSuccess');
-  const submitBtn = document.getElementById('submitBtn');
-
-  if (successEl) successEl.style.display = 'block';
-
-  if (submitBtn) {
-    submitBtn.disabled = true;
-    submitBtn.textContent = '✓ Inquiry Sent';
-  }
-
-  if (successEl) {
-    successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(formData).toString()
+  })
+    .then(() => {
+      document.getElementById('formSuccess').style.display = 'block';
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = '✓ Inquiry Sent';
+      document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    })
+    .catch(() => {
+      alert('Something went wrong. Please email us directly at swananda.foods.beverages@gmail.com');
+    });
 }

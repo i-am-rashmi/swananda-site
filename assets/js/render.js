@@ -287,33 +287,33 @@ function renderSample() {
           <div class="form__row">
             <div class="form__group">
               <label class="form__label">Your Name *</label>
-              <input id="f-name"     class="form__input"  type="text"  placeholder="Full name"        required>
+              <input id="f-name"  name="f-name"  class="form__input"  type="text"  placeholder="Full name"        required>
             </div>
             <div class="form__group">
               <label class="form__label">Business Name *</label>
-              <input id="f-business" class="form__input"  type="text"  placeholder="Restaurant / Hotel / Café" required>
+              <input id="f-business" name="f-business"  class="form__input"  type="text"  placeholder="Restaurant / Hotel / Café" required>
             </div>
           </div>
           <div class="form__row">
             <div class="form__group">
               <label class="form__label">Phone Number *</label>
-              <input id="f-phone"    class="form__input"  type="tel"   placeholder="+91 98765 43210"  required>
+              <input id="f-phone"  name="f-phone"  class="form__input"  type="tel"   placeholder="+91 98765 43210"  required>
             </div>
             <div class="form__group">
               <label class="form__label">Email Address</label>
-              <input id="f-email"    class="form__input"  type="email" placeholder="you@business.com">
+              <input id="f-email"  name="f-email" class="form__input"  type="email" placeholder="you@business.com">
             </div>
           </div>
           <div class="form__group">
             <label class="form__label">Type of Establishment *</label>
-            <select id="f-estab" class="form__select" required>
+            <select id="f-estab" name="f-estab" class="form__select" required>
               <option value="">Select establishment type</option>
               ${estabOptions}
             </select>
           </div>
           <div class="form__group">
             <label class="form__label">City / Location</label>
-            <input id="f-city" class="form__input" type="text" placeholder="Bengaluru, Mumbai, Hyderabad...">
+            <input id="f-city" name="f-city" class="form__input" type="text" placeholder="Bengaluru, Mumbai, Hyderabad...">
           </div>
           <div class="form__group">
             <label class="form__label">Flavours of Interest</label>
@@ -321,16 +321,16 @@ function renderSample() {
           </div>
           <div class="form__group">
             <label class="form__label">Approximate Monthly Volume</label>
-            <select id="f-volume" class="form__select">
+            <select id="f-volume" name="f-volume" class="form__select">
               <option value="">Select estimated volume</option>
               ${volumeOptions}
             </select>
           </div>
           <div class="form__group">
             <label class="form__label">Message (Optional)</label>
-            <textarea id="f-message" class="form__textarea" placeholder="Tell us about your venue or specific requirements..."></textarea>
+            <textarea id="f-message" name="f-message" class="form__textarea" placeholder="Tell us about your venue or specific requirements..."></textarea>
           </div>
-          <button class="form__submit" id="submitBtn" onclick="submitForm()">
+          <button class="form__submit" id="submitBtn" onclick="submitForm(event)">
             Send Inquiry &amp; Request Sample Kit
           </button>
           <p class="form__note">We respond within 48 hours. Your information is never shared.</p>
