@@ -146,7 +146,7 @@ const SITE = {
       description: "The tropical brightness of pineapple and mango, enhanced with Sunfiber® AG prebiotic fibre. Gut-supportive, FODMAP-friendly, and vibrant.",
       tags: ["Sunfiber® AG", "Prebiotic", "Tropical", "Zero Sugar"],
       drinkImage: "assets/images/drinks/pineapple-mango.jpg",
-      sachetImage: "assets/images/sachets/pineapple-mango-fibre-plus.jpg"
+      sachetImage: "assets/images/sachets/pineapple-mango-fiber-plus.jpg`"
     }
   ],
 
