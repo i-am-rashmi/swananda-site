@@ -438,13 +438,13 @@ function renderFooter() {
 
 // ── EDIT TOGGLE ──────────────────────────────
 
-function renderEditToggle() {
-  return `
-    <button class="edit-toggle" id="editToggle" onclick="toggleEditMode()">
-      <span>&#9998;</span>
-      <span id="editLabel">Edit Text</span>
-    </button>`;
-}
+// function renderEditToggle() {
+//   return `
+//     <button class="edit-toggle" id="editToggle" onclick="toggleEditMode()">
+//       <span>&#9998;</span>
+//       <span id="editLabel">Edit Text</span>
+//     </button>`;
+// }
 
 // ── INIT ─────────────────────────────────────
 
@@ -452,7 +452,6 @@ function init() {
   const app = document.getElementById('app');
 
   app.innerHTML = [
-    renderEditToggle(),
     renderNav(),
     renderCarousel(),
     renderMarquee(),
@@ -475,16 +474,16 @@ function init() {
 
 // ── EDIT MODE ────────────────────────────────
 
-let editMode = false;
+// let editMode = false;
 
-function toggleEditMode() {
-  editMode = !editMode;
-  document.body.classList.toggle('editable-active', editMode);
-  document.querySelectorAll('[contenteditable]').forEach(el =>
-    el.setAttribute('contenteditable', editMode ? 'true' : 'false')
-  );
-  document.getElementById('editToggle').classList.toggle('active', editMode);
-  document.getElementById('editLabel').textContent = editMode ? 'Done Editing' : 'Edit Text';
-}
+// function toggleEditMode() {
+//   editMode = !editMode;
+//   document.body.classList.toggle('editable-active', editMode);
+//   document.querySelectorAll('[contenteditable]').forEach(el =>
+//     el.setAttribute('contenteditable', editMode ? 'true' : 'false')
+//   );
+//   document.getElementById('editToggle').classList.toggle('active', editMode);
+//   document.getElementById('editLabel').textContent = editMode ? 'Done Editing' : 'Edit Text';
+// }
 
 document.addEventListener('DOMContentLoaded', init);
